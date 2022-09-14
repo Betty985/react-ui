@@ -1,4 +1,2 @@
-export * from "./Mp4Player";
-export * from "./Mp4Player";
-export * from "./Mp4Player";
+export * from "./TextView";
 export * from "./Mp4Player";

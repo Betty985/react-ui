@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css'
 
-interface TextViewProps {
+export interface TextViewProps {
   children?: React.ReactNode
 }
 
@@ -11,4 +11,4 @@ const TextView = ({ children }: TextViewProps) => {
   </div>
 }
 
-export default TextView;
+export {TextView};

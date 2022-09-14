@@ -19,13 +19,15 @@ function create_tsx() {
     let path = resolve(pgk_path, `${name}/index.tsx`)
     const template = `import React from 'react';
 import './index.css'
-interface ${name}Props {
+export interface ${name}Props {
     children?: React.ReactNode
   }
 const ${name} = ({ children }: ${name}Props) => {
-    return <div className='${name}'>
+    return (
+    <div className='${name}'>
        {children}
     </div>
+   )
   }
 export {${name}}
      `
@@ -44,11 +46,11 @@ function create_css() {
 function create_stories() {
     let path = resolve(pgk_path, `${name}/index.stories.tsx`)
     const template = `import React from "react";
-    import {${name}} from "./index";
+import {${name}} from "./index";
     
-    export default {
-      title: "${name}"
-    };
+export default {
+   title: "${name}"
+};
     
     export const With${name} = () => (
       <${name}>

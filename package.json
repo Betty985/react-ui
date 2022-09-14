@@ -1,23 +1,33 @@
 {
   "name": "react-ui",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "n": "esno scripts/new",
-    "s": "start-storybook -p 6006",
-    "build:storybook": "build-storybook -c .storybook -o docs"
-  },
+  "description": "using Rollup, TypeScript and Storybook",
+  "main": "build/index.js",
+  "module": "build/index.esm.js",
+  "typings": "build/types/packages/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "types": "build/index.d.ts",
   "keywords": [],
   "author": "",
   "license": "ISC",
-
+  "scripts": {
+    "n": "esno scripts/new",
+    "s": "start-storybook -p 6006",
+    "build": "rimraf build/* && rollup -c",
+    "build:storybook": "build-storybook -c .storybook -o docs"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }, 
+  },
   "devDependencies": {
     "@babel/core": ">=7.11.5 <8.0.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^14.1.0",
     "@storybook/react": "^6.5.10",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
@@ -29,8 +39,14 @@
     "file-save": "^0.2.0",
     "less": "^4.1.3",
     "require-from-string": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.0",
     "style-loader": "^1.3.0",
     "ts-loader": "^9.3.1",
+    "tslib": "^2.4.0",
     "typescript": "^4.8.2"
   }
 }

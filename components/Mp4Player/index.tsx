@@ -1,12 +1,15 @@
 import React from 'react';
 import './index.css'
-interface Mp4PlayerProps {
-    children?: React.ReactNode
-  }
-const Mp4Player = ({ children }: Mp4PlayerProps) => {
-    return <div className='Mp4Player'>
-       {children}
-    </div>
-  }
-export {Mp4Player}
-     
+export interface Mp4PlayerProps extends React.MediaHTMLAttributes<HTMLVideoElement> {
+  url: string
+}
+const Mp4Player = ({ url, ...props }: Mp4PlayerProps) => {
+  return (
+    <video src={url} autoPlay controls {...props}>
+      <source src={url} type="videl/mp4"></source>
+      <track src={url} kind='captions' label='english_captions'></track>
+    </video>
+  )
+}
+export { Mp4Player }
+

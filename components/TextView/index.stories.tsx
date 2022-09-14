@@ -1,5 +1,5 @@
 import React from "react";
-import TextView from "./index";
+import {TextView} from "./index";
 
 export default {
   title: "TextView"
