@@ -1,4 +1,3 @@
-// packages/TextView/index.stories.tsx
 import React from "react";
 import TextView from "./index";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-// import './index.less'
+import './index.css'
 
 interface TextViewProps {
   children?: React.ReactNode

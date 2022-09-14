@@ -10,7 +10,7 @@ module.exports = {
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.less$/,
-      use: ["style-loader", "less-loader", "css-loader"],
+      use: ["style-loader", "css-loader"],
       include: path.resolve(__dirname, "../")
     });
     config.module.rules.push({
