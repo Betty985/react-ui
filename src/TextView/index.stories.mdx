@@ -1,0 +1,29 @@
+<!-- packages/Mp4Player/index.stories.mdx -->
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { TextView } from './index';
+
+<Meta title="MDX/TextView" component={TextView} />
+
+## TextView
+
+### Markdown原功能
+
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+
+一级标题
+=================
+二级标题
+-----------------
+
+### 基础使用如下
+
+<Canvas>
+  <Story name="TextView">
+    <TextView>hello,world</TextView>
+  </Story>
+</Canvas>
