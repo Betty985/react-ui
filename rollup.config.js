@@ -13,7 +13,7 @@ const babelOptions={
     exclude:'**/node_modules/**'
 }
 export default {
-    input:'components/index.ts',
+    input:'src/index.ts',
     output: [{
         file:package_json.main,
         format:'cjs'

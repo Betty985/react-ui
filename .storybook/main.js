@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = {
   // storybook文档的目标文件
-  stories: ["../components/**/*.stories.tsx"],
+  stories: ["../src/**/*.stories.tsx"],
   // 插件依赖，后面我们会使用
   addons: [],
   webpackFinal: async (config) => {

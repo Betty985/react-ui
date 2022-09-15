@@ -12,12 +12,12 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
     },
-    "include": ["components/**/*"],
+    "include": ["src/**/*"],
     "exclude": [
         "node_modules",
         "dist",
         "docs",
-        "components/**/*.stories.tsx",
-        "components/**/*.test.tsx"
+        "src/**/*.stories.tsx",
+        "src/**/*.test.tsx"
     ]
 }
