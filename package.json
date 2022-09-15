@@ -16,7 +16,6 @@
     "n": "esno scripts/new",
     "s": "start-storybook -p 6006",
     "prettier":"prettier --write 'src/**/*.{ts,tsx}'",
-    "git":"git add .&&git commit -m",
     "postgit":"npm run build && npm version patch && npm publish && git push",
     "build": "rimraf build/* && rollup -c",
     "build:storybook": "build-storybook -c .storybook -o docs"

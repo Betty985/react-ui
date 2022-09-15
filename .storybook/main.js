@@ -5,14 +5,9 @@ const path = require("path");
 module.exports = {
   // storybook文档的目标文件
   stories: ["../src/**/*.stories.tsx"],
-  // 插件依赖，后面我们会使用
-  addons: [],
+  // 插件依赖
+  addons: ['@storybook/addon-knobs', '@storybook/addon-docs'],
   webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.less$/,
-      use: ["style-loader", "css-loader"],
-      include: path.resolve(__dirname, "../")
-    });
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       loader: require.resolve("babel-loader"),
