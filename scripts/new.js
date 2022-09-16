@@ -43,6 +43,24 @@ function create_css() {
      `
     create(path, template);
 }
+function create_mdx(){
+    let path = resolve(pgk_path, `${name}/index.stories.mdx`)
+    const template=`<!-- packages/${name}/index.stories.mdx -->
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import {${name}} from "./index.tsx";
+    
+<Meta title="MDX/${name}" component={${name}} />
+## ${name}
+
+<Canvas>
+  <Story name="${name}">
+    <${name}/>
+  </Story>
+</Canvas>
+`
+create(path, template);
+    
+}
 function create_stories() {
     let path = resolve(pgk_path, `${name}/index.stories.tsx`)
     const template = `import React from "react";
@@ -52,12 +70,11 @@ export default {
    title: "${name}"
 };
     
-    export const With${name} = () => (
-      <${name}>
-        This is my ${name} component
-      </${name}>
-    );
-     `
+export const With${name} = () => (
+  <${name}>
+     This is my ${name} component
+  </${name}>
+);`
     create(path, template);
 }
 async function updateIndex() {
@@ -79,7 +96,9 @@ function main() {
 
     create_css();
 
-    create_stories()
+    create_stories();
+
+    create_mdx();
 
     updateIndex();
 
