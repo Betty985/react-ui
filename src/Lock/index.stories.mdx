@@ -1,0 +1,29 @@
+<!-- packages/Lock/index.stories.mdx -->
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import {Lock} from "./index.tsx";
+    
+<Meta title="MDX/Lock" component={Lock} />
+## Lock
+```js
+// 无权访问的组件类型
+export enum LockType {
+    'PAGE',//展示403页面
+    'BUTTON',//disabled
+    'MENU'//不展示
+}
+interface LockProps {
+    children: React.ReactElement;
+    type: LockType;
+    permissionCheck?:Function,//校验函数
+    ERROR_403?:ReactNode//403元素
+}
+```
+# 实例
+<Canvas>
+  <Story name="Lock">
+    <Lock type={LockType.PAGE} permissionCheck={async ()=>{let res =await getToken() return res} } ERROR_403={<p>403 Forbidden代表客户端错误，指的是服务器端有能力处理该请求码，但拒绝有授权访问</p>}>
+      <h1>page 1</h1>
+    </Lock>
+  </Story>
+</Canvas>
+
