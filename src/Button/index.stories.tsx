@@ -1,12 +1,8 @@
-import React from "react";
-import {Button} from "./index";
-    
+import React from 'react';
+import { Button } from './index';
+
 export default {
-   title: "Button"
+  title: 'Button',
 };
-    
-export const WithButton = () => (
-  <Button>
-     This is my Button component
-  </Button>
-);
+
+export const WithButton = () => <Button>This is my Button component</Button>;
