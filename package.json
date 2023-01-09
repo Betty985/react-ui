@@ -41,6 +41,7 @@
     "babel-loader": "^8.2.5",
     "babel-preset-react-app": "^10.0.1",
     "chalk": "^5.0.1",
+    "classnames": "^2.3.2",
     "css-loader": "^6.7.1",
     "esno": "^0.16.3",
     "file-save": "^0.2.0",
