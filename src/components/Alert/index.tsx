@@ -1,6 +1,6 @@
-import React, { ReactNode, FC, useState, MouseEventHandler } from 'react';
+import React, { ReactNode, FC, useState} from 'react';
 import classnames from 'classnames';
-import './index.css';
+import './index.scss';
 export interface AlertProps {
   /** 标题 */
   title?: string;

@@ -17,12 +17,12 @@ function create(url, content) {
 }
 function create_tsx() {
     let path = resolve(pgk_path, `${name}/index.tsx`)
-    const template = `import React from 'react';
+    const template = `import React , {FC} from 'react';
 import './index.css'
 export interface ${name}Props {
     children?: React.ReactNode
   }
-const ${name} = ({ children }: ${name}Props) => {
+const ${name} :FC<${name}Props> = (props) => {
     return (
     <div className='${name}'>
        {children}
@@ -33,8 +33,8 @@ export {${name}}
      `
     create(path, template);
 }
-function create_css() {
-    let path = resolve(pgk_path, `${name}/index.css`)
+function create_scss() {
+    let path = resolve(pgk_path, `${name}/index.scss`)
     const template = `
 .${name} {
   font-size: 24px;
@@ -94,7 +94,7 @@ function main() {
 
     create_tsx();
 
-    create_css();
+    create_scss();
 
     create_stories();
 
