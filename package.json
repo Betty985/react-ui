@@ -15,8 +15,9 @@
   "scripts": {
     "n": "esno scripts/new",
     "s": "start-storybook -p 6006",
-    "prettier":"prettier --write 'src/**/*.{ts,tsx}'",
-    "postgit":"npm run build && npm version patch && npm publish && git push",
+    "start": "react-scripts start",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+    "postgit": "npm run build && npm version patch && npm publish && git push",
     "build": "rimraf build/* && rollup -c",
     "build:storybook": "build-storybook -c .storybook -o docs"
   },
@@ -58,14 +59,31 @@
     "tslib": "^2.4.0",
     "typescript": "^4.8.2"
   },
-  "lint-staged":{
-    "src/**/*.{ts.tsx}":[
+  "lint-staged": {
+    "src/**/*.{ts.tsx}": [
       "prettier --write"
     ]
   },
-  "husky":{
-    "hooks":{
-      "pre-commit":"lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "i": "^0.3.7",
+    "npm": "^9.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -4,7 +4,7 @@ import { resolve, join } from 'path'
 import chalk from 'chalk'
 const root = process.cwd()
 const name = process.argv[2]
-const pgk_path = resolve(root, 'src')
+const pgk_path = resolve(root, 'src/components')
 function log(msg, err) {
     if (err) {
         console.log(chalk.bold.bgRed(msg))
