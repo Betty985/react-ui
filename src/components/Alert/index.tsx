@@ -1,6 +1,5 @@
 import React, { ReactNode, FC, useState} from 'react';
 import classnames from 'classnames';
-import './index.scss';
 export interface AlertProps {
   /** 标题 */
   title?: string;

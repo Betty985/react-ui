@@ -5,6 +5,7 @@ import chalk from 'chalk'
 const root = process.cwd()
 const name = process.argv[2]
 const pgk_path = resolve(root, 'src/components')
+const scss_path = resolve(root, 'src/styles')
 function log(msg, err) {
     if (err) {
         console.log(chalk.bold.bgRed(msg))
@@ -18,11 +19,11 @@ function create(url, content) {
 function create_tsx() {
     let path = resolve(pgk_path, `${name}/index.tsx`)
     const template = `import React , {FC} from 'react';
-import './index.css'
 export interface ${name}Props {
     children?: React.ReactNode
   }
 const ${name} :FC<${name}Props> = (props) => {
+    const {children}=props
     return (
     <div className='${name}'>
        {children}
@@ -34,7 +35,7 @@ export {${name}}
     create(path, template);
 }
 function create_scss() {
-    let path = resolve(pgk_path, `${name}/index.scss`)
+    let path = resolve(scss_path, `${name.toLowerCase()}.scss`)
     const template = `
 .${name} {
   font-size: 24px;
@@ -50,7 +51,7 @@ import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
 import {${name}} from "./index.tsx";
     
 <Meta title="MDX/${name}" component={${name}} />
-## ${name}
+${name}
 
 <Canvas>
   <Story name="${name}">
@@ -78,10 +79,17 @@ export const With${name} = () => (
     create(path, template);
 }
 async function updateIndex() {
+    // 自动导出组件
     let path = resolve(pgk_path, "index.ts");
     let indexText = await fs.readFile(path);
     const template = `${indexText}export * from "./${name}";`;
     create(path, template);
+    // 自动导出scss
+    let scssPath=resolve(scss_path,'index.scss')
+    let indexScss = await fs.readFile(scssPath);
+    const scssTemplate=`${indexScss}@import "./${name}.scss";`;
+    create(scssPath, scssTemplate);
+    
 }
 function main() {
     if (!name)

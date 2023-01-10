@@ -2,7 +2,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from "rollup-plugin-typescript2"
-import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
 const {babel} =require('@rollup/plugin-babel')
 const package_json =require('./package.json')
@@ -13,7 +12,7 @@ const babelOptions={
     exclude:'**/node_modules/**'
 }
 export default {
-    input:'src/index.ts',
+    input:'src/index.tsx',
     output: [{
         file:package_json.main,
         format:'cjs'
@@ -26,9 +25,6 @@ export default {
         resolve(),
         commonjs({sourceMap:!isProd}),
         typescript({useTsconfigDeclarationDir:true}),
-        postcss({
-            extract:true,
-        }),
         babel(babelOptions),
         json()
     ]

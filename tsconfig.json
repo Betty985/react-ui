@@ -11,6 +11,8 @@
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {"@/*":["src/*"]}
     },
     "include": ["src/**/*"],
     "exclude": [
