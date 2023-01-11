@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { useContext } from 'react';
 import { MenuContext } from '.';
+
 export interface MenuItemProps {
   index?: string;
   children?: ReactNode;
