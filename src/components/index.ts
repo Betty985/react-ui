@@ -4,4 +4,5 @@ export * from './Button';
 export * from './Button';
 export * from './Lock';
 export * from './Tree';
-export * from "./Menu";
+export * from './Menu';
+export * from './Icon';

@@ -44,9 +44,9 @@ function create_scss() {
      `
     create(path, template);
 }
-function create_mdx(){
+function create_mdx() {
     let path = resolve(pgk_path, `${name}/index.stories.mdx`)
-    const template=`<!-- packages/${name}/index.stories.mdx -->
+    const template = `<!-- packages/${name}/index.stories.mdx -->
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
 import {${name}} from "./index.tsx";
     
@@ -59,8 +59,8 @@ ${name}
   </Story>
 </Canvas>
 `
-create(path, template);
-    
+    create(path, template);
+
 }
 function create_stories() {
     let path = resolve(pgk_path, `${name}/index.stories.tsx`)
@@ -85,11 +85,12 @@ async function updateIndex() {
     const template = `${indexText}export * from "./${name}";`;
     create(path, template);
     // 自动导出scss
-    let scssPath=resolve(scss_path,'index.scss')
+    let scssPath = resolve(scss_path, 'index.scss')
     let indexScss = await fs.readFile(scssPath);
-    const scssTemplate=`${indexScss}@import "./${name}.scss";`;
+    const scssTemplate = `${indexScss}
+@import "./${name}.scss";`;
     create(scssPath, scssTemplate);
-    
+
 }
 function main() {
     if (!name)

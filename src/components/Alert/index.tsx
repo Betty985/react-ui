@@ -1,4 +1,4 @@
-import React, { ReactNode, FC, useState} from 'react';
+import React, { ReactNode, FC, useState } from 'react';
 import classnames from 'classnames';
 export interface AlertProps {
   /** 标题 */
@@ -28,7 +28,11 @@ const Alert: FC<AlertProps> = props => {
         <div className={classes}>
           {title && <p className="alert-title">{title}</p>}
           {description && <p className="alert-description">{description}</p>}
-          {closeable && <button className='alert-close' onClick={handleClick}>{closeIcon}</button>}
+          {closeable && (
+            <button className="alert-close" onClick={handleClick}>
+              {closeIcon}
+            </button>
+          )}
         </div>
       )}
     </>

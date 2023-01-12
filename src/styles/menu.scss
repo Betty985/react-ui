@@ -26,7 +26,8 @@ $color: #1677ff;
   @include truncation;
 }
 .submenu-title {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   min-width: 0;
   padding-left: 20px;
   margin: 4px 0;
@@ -38,4 +39,7 @@ $color: #1677ff;
 }
 .menu-item:not(.menu-item-selected):hover {
   background-color: rgba(0, 0, 0, 0.06);
+}
+.submenu-arrow {
+  inset-inline-end: 16px;
 }

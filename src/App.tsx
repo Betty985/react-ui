@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert } from './components/Alert';
 import { Menu, MenuItem, SubMenu } from './components';
+
 import './styles/index.scss';
 const App = () => {
   return (

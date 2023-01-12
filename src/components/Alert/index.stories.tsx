@@ -1,10 +1,10 @@
-import React from "react";
-import {Alert} from "./index";
-    
+import React from 'react';
+import { Alert } from './index';
+
 export default {
-   title: "Alert"
+  title: 'Alert',
 };
-const onClose=()=>console.log('close')
+const onClose = () => console.log('close');
 export const WithAlert = () => (
-  <Alert type='primary' title='title' description='description' closeable onClose={onClose}/>
+  <Alert type="primary" title="title" description="description" closeable onClose={onClose} />
 );
