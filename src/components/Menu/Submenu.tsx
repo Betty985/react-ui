@@ -1,9 +1,9 @@
-import React, { FC, useState } from 'react';
-import { useContext } from 'react';
-import { MenuContext, MenuChild, MenuType } from '.';
+import React, { FC, useState, useContext } from 'react';
+import { MenuContext } from '.';
 import { renderChildren } from './util';
+import { MenuChild, MenuType } from './type';
 export interface SubMenuProps {
-  index?: string;
+  index: string;
   title: string;
   children?: MenuChild | MenuChild[];
 }
@@ -17,10 +17,13 @@ const SubMenu: FC<SubMenuProps> = props => {
     onSelect?.(index);
   };
   return (
-    <li key={index} onClick={handleClick}>
-      <div onClick={() => setFold(i => !i)}>{title}</div>
-      <div>{!isFolded && renderChildren(children, MenuType.SubMenu, index)}</div>
-    </li>
+    <div key={index} onClick={handleClick}>
+      <div className="submenu-title" onClick={() => setFold(i => !i)}>
+        {title}
+      </div>
+      <ul className="submenu">{!isFolded && renderChildren(children, MenuType.Menu, index)}</ul>
+    </div>
   );
 };
+SubMenu.displayName = 'SubMenu';
 export { SubMenu };

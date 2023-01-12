@@ -1,0 +1,7 @@
+// 一行截断
+@mixin truncation {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}

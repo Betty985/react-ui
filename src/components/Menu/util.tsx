@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuChild, MenuType } from '.';
+import { MenuChild, MenuType } from './type';
 const NOT_VALID_MENU_CHILDREN =
   'Warning: Menu has a child which is not a MenuItem component or SubMenu component';
 const NOT_VALID_SUBMENU_CHILDREN = 'Warning: Menu has a child which is not a MenuItem component';
@@ -34,17 +34,16 @@ export const toArray = (obj: unknown) => (Array.isArray(obj) ? obj : [obj]);
  * @param parentIndex
  * @returns
  */
-export const renderChildren = (
-  children: MenuChild[] | MenuChild,
-  type: MenuType,
-  parentIndex = '',
-) =>
-  React.Children.map(toArray(children), (child, index) => {
+export const renderChildren = (children: MenuChild[] | MenuChild, type: MenuType, index?: string) =>
+  React.Children.map(toArray(children), (child, i) => {
+    if (!child) {
+      return;
+    }
     const { displayName } = child.type;
-    const { validDisplay, error } = TypeMap.get(displayName as unknown as MenuType);
+    const { validDisplay, error } = TypeMap.get(type);
+    const { index } = child?.props || '0';
     if (validDisplay.includes(displayName)) {
-      const i = type === MenuType.Menu ? index.toString() : `${parentIndex}-${index}`;
-      return React.cloneElement(child, { index: i });
+      return React.cloneElement(child, { index });
     } else {
       console.error(error);
     }

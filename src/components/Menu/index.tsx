@@ -1,15 +1,12 @@
 import React, { FC, ReactNode } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { MenuItemProps, MenuItem } from './MenuItem';
+import { MenuChild, MenuType } from './type';
+import { MenuItem } from './MenuItem';
 import { renderChildren } from './util';
-export { SubMenu } from './Submenu';
+import { SubMenu } from './Submenu';
 type SelectCallback = (selectedIndex: string) => void;
-export type MenuChild = React.FunctionComponentElement<MenuItemProps>;
-export enum MenuType {
-  'Menu',
-  'SubMenu',
-}
+
 export interface MenuProps {
   /** 自定义展开图标 */
   expandIcon?: ReactNode;
@@ -36,11 +33,11 @@ const Menu: FC<MenuProps> = props => {
     onSelect: handleSelect,
   };
   return (
-    <ul>
+    <ul className="menu">
       <MenuContext.Provider value={context}>
         {renderChildren(children, MenuType.Menu)}
       </MenuContext.Provider>
     </ul>
   );
 };
-export { Menu, MenuItem };
+export { Menu, MenuItem, SubMenu };
